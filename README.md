@@ -1,4 +1,6 @@
-# qr-code
+# Blackmirror dapp
+
+https://blackmirror.robonomics.network/
 
 ## Project setup
 ```
@@ -19,6 +21,3 @@ yarn build
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
