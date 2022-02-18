@@ -1,7 +1,12 @@
 <template>
   <div>
     <h3>Your message to the device</h3>
-    <p><i>Test Robonomics IoT subscription: type here your text, send and view it on device</i></p>
+    <p>
+      <i
+        >Test Robonomics IoT subscription: type here your text, send and view it
+        on device</i
+      >
+    </p>
     <Form @submit="send" />
     <div v-if="result">
       <a
@@ -39,7 +44,9 @@ export default {
       this.error = "";
       this.result = "";
       try {
-        const tx = robonomics.datalog.write(text);
+        const tx = robonomics.datalog.write(
+          JSON.stringify({ blackmirror: text })
+        );
         const resultTx = await robonomics.accountManager.signAndSend(tx);
         this.result = `${resultTx.blockNumber}-${resultTx.txIndex}`;
       } catch (error) {

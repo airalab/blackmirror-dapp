@@ -1,8 +1,12 @@
 <template>
   <section>
-    <textarea v-model="text" placeholder="Type your message here" required/>
+    <textarea v-model="text" placeholder="Type your message here" required />
     <button @click="submit" :disabled="!isSubscription">Sign and send</button>
-    <div class="tip" v-if="!isSubscription">You need IoT subscription for transaction fee. Ask in <a :href="discord" target="_blank">Discord</a> to add your account to the Learning Winter School 2022 subscription.</div>
+    <div class="tip" v-if="!isSubscription">
+      You need IoT subscription for transaction fee. Ask in
+      <a :href="discord" target="_blank">Discord</a> to add your account to the
+      Learning Winter School 2022 subscription.
+    </div>
   </section>
 </template>
 
@@ -35,14 +39,15 @@ export default {
 textarea {
   width: 100%;
   border: 1px solid var(--color-black);
-  padding: calc( var(--space) * 0.5);
+  padding: calc(var(--space) * 0.5);
   text-align: center;
   font-weight: bold;
   font-size: 18px;
 }
 
-textarea, button {
-  margin-bottom: var(--space)
+textarea,
+button {
+  margin-bottom: var(--space);
 }
 
 button {
@@ -69,7 +74,7 @@ button[disabled] {
 }
 
 .tip a {
-  color: #fff
+  color: #fff;
 }
 
 .tip:after {
@@ -81,6 +86,6 @@ button[disabled] {
   border-bottom: 10px solid var(--color-black);
   position: absolute;
   top: -10px;
-  lefT: calc(50% - 10px)
+  left: calc(50% - 10px);
 }
 </style>

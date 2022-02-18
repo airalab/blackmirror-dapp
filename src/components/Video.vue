@@ -24,7 +24,6 @@ export default {
 </script>
 
 <style scoped>
-
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -38,5 +37,4 @@ export default {
   width: 100%;
   height: 100%;
 }
-
 </style>

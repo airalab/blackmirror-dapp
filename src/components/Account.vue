@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import AccountManager from "robonomics-interface/dist/accountManagerUi";
 import robonomics from "../robonomics";
 import config from "../config";
 
@@ -30,17 +29,12 @@ export default {
     };
   },
   async created() {
-    await AccountManager.initPlugin(robonomics.accountManager.keyring, {
-      isDevelopment: config.isDevelopmentAccounts
+    robonomics.accountManager.onReady(() => {
+      this.accounts = robonomics.accountManager.getAccounts();
+      if (this.accounts.length) {
+        this.account = this.accounts[0].address;
+      }
     });
-    const devices = await robonomics.rws.getDevices(config.subscription);
-    if (!devices.isEmpty) {
-      this.devices = devices.toArray().map(item => item.toString());
-    }
-    this.accounts = robonomics.accountManager.getAccounts();
-    if (this.accounts.length) {
-      this.account = this.accounts[0].address;
-    }
   },
   computed: {
     isRws() {
