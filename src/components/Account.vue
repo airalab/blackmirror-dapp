@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select v-model="account">
+    <!-- <select v-model="account">
       <option
         v-for="(account, key) in accounts"
         :key="key"
@@ -9,8 +9,10 @@
         {{ account.meta.isTesting ? "dev" : "" }} {{ account.meta.name }}
       </option>
     </select>
-    <br />
-    {{ account }}
+    <br /> -->
+    <h3>Your account</h3>
+    <p><i>[Robonomics parachain format]</i></p>
+    <p class="account">{{ account }}</p>
   </div>
 </template>
 
@@ -62,3 +64,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.account {
+  max-width: 100%;
+  overflow: scroll;
+}
+</style>

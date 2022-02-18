@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h3>Your message to the device</h3>
+    <p><i>Test Robonomics IoT subscription: type here your text, send and view it on device</i></p>
     <Form @submit="send" />
     <div v-if="result">
       <a
