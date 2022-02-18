@@ -187,6 +187,10 @@ ol {
   padding-left: 30px;
 }
 
+a {
+  color: var(--color-blue)
+}
+
 .animate-show-up {
   visibility: hidden;
   opacity: 0;
