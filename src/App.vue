@@ -175,8 +175,7 @@ h2 {
   margin-bottom: calc(var(--space) * 2);
 }
 
-p,
-ol {
+p, ol, h4 {
   margin-bottom: var(--space);
 }
 

@@ -8,12 +8,19 @@
       >
     </p>
     <Form @submit="send" />
-    <div v-if="result">
-      <a
-        :href="`https://robonomics.subscan.io/extrinsic/${result}`"
-        target="_blank"
-        >View tx explorer</a
-      >
+
+    <div class="msg" v-if="result">
+      <h4>Your message has been sent</h4>
+      <ol>
+        <li>
+          <a
+            :href="`https://robonomics.subscan.io/extrinsic/${result}`"
+            target="_blank"
+            >View tx explorer</a
+          >
+        </li>
+        <li><router-link :to="{ name: 'users' }" target="_blank">View list of succesfully written accounts</router-link></li>
+      </ol>
     </div>
     <div v-if="error">{{ error }}</div>
   </div>
@@ -56,3 +63,15 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.msg {
+  background-color: var(--color-yellow);
+  padding: var(--space)
+}
+
+.msg a {
+  font-weight: bold;
+  color: var(--color-blue)
+}
+</style>
