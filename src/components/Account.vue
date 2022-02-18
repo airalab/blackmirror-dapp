@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <!-- <select v-model="account">
+  <section>
+    <h3>Your account</h3>
+    <p><i>[Robonomics parachain format]</i></p>
+    <select v-if="accounts.length > 1" v-model="account">
       <option
         v-for="(account, key) in accounts"
         :key="key"
@@ -9,11 +11,16 @@
         {{ account.meta.isTesting ? "dev" : "" }} {{ account.meta.name }}
       </option>
     </select>
-    <br /> -->
-    <h3>Your account</h3>
-    <p><i>[Robonomics parachain format]</i></p>
-    <p class="account">{{ account }}</p>
-  </div>
+    <p v-if="accounts.length > 0">
+      <b class="account">{{ account }}</b>
+      <br/>
+      <a class="copyLink" href="javascript:;" @click.prevent="clipboard(account, $event)">
+        <span class="copy">Copy address</span>
+        <span class="copied">Address copied!</span>
+      </a>
+    </p>
+    <p v-if="accounts.length === 0">Create or activate your account in <a href="https://polkadot.js.org/extension/" target="_blank">Polkadot.js extension</a></p>
+  </section>
 </template>
 
 <script>
@@ -55,13 +62,44 @@ export default {
         robonomics.accountManager.useSubscription(false);
       }
     }
+  },
+
+  methods: {
+    clipboard(text, event){
+      navigator.clipboard.writeText(text).then(function() {
+        event.target.closest('a').classList.add('on')
+
+        setTimeout(function() {
+          event.target.closest('a').classList.remove('on')
+        }, 5000)
+      })
+    }
   }
 };
 </script>
 
 <style scoped>
 .account {
+  display: inline-block;
   max-width: 100%;
-  overflow: scroll;
+  overflow: auto;
+}
+
+.copyLink .copied {
+  display: none;
+}
+
+.copyLink.on {
+  color: var(--color-green);
+  text-decoration: none;
+  cursor: default;
+}
+
+.copyLink.on .copied {
+  display: block;
+}
+
+.copyLink.on .copy {
+  display: none;
 }
 </style>

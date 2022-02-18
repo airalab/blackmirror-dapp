@@ -5,8 +5,8 @@
 
       <h2 class="text-typing">Welcome to black mirror</h2>
       <p class="animate-show-up animate-show-up-1">
-        This decentrilized application made for students of Robonomics winter
-        school 2022. It shows you that decentrilized cloud over blockchain
+        This decentralized application made for students of Robonomics winter
+        school 2022. It shows you that decentralized cloud over blockchain
         already works.
       </p>
       <ol>
@@ -25,7 +25,7 @@
         </li>
         <li class="animate-show-up animate-show-up-5">
           Make sure your transaction with datalog succesfully
-          <router-link :to="{ name: 'users' }">sent</router-link>
+          <router-link :to="{ name: 'users' }" target="_blank">sent</router-link>
         </li>
         <li class="animate-show-up animate-show-up-6">
           Watch QR, it should change

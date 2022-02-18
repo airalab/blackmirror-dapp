@@ -103,6 +103,11 @@ body {
   line-height: 1.5;
 }
 
+body *::selection {
+    color: var(--color-black);
+    background-color: var(--color-yellow); 
+}
+
 .app-title {
   font-family: "Yeseva One", cursive;
   background: var(--color-yellow);
