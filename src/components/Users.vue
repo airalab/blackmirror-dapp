@@ -1,9 +1,10 @@
 <template>
-  <ul>
+  <ul v-if="!isLoader">
     <li v-for="(device, k) in devices" :key="k">
       {{ device }}
     </li>
   </ul>
+  <div v-else>...</div>
 </template>
 
 <script>
@@ -13,7 +14,8 @@ import config from "../config";
 export default {
   data() {
     return {
-      devices: []
+      devices: [],
+      isLoader: true
     };
   },
   created() {
@@ -21,6 +23,7 @@ export default {
   },
   methods: {
     async getUsers() {
+      this.isLoader = true;
       const users = [];
       const devices = await robonomics.rws.getDevices(config.subscription);
       if (!devices.isEmpty) {
@@ -30,8 +33,9 @@ export default {
           for (const item of datalog) {
             try {
               const data = JSON.parse(item[1].toHuman());
-              if (data.blackmirror) {
+              if (data.blackmirror && !users.includes(addr)) {
                 users.push(addr);
+                break;
               }
               // eslint-disable-next-line no-empty
             } catch (_) {}
@@ -39,6 +43,7 @@ export default {
         }
       }
       this.devices = users;
+      this.isLoader = false;
     }
   }
 };
