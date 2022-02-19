@@ -13,13 +13,22 @@
     </select>
     <p v-if="accounts.length > 0">
       <b class="account">{{ account }}</b>
-      <br/>
-      <a class="copyLink" href="javascript:;" @click.prevent="clipboard(account, $event)">
+      <br />
+      <a
+        class="copyLink"
+        href="javascript:;"
+        @click.prevent="clipboard(account, $event)"
+      >
         <span class="copy">Copy address</span>
         <span class="copied">Address copied!</span>
       </a>
     </p>
-    <p v-if="accounts.length === 0">Create or activate your account in <a href="https://polkadot.js.org/extension/" target="_blank">Polkadot.js extension</a></p>
+    <p v-if="accounts.length === 0">
+      Create or activate your account in
+      <a href="https://polkadot.js.org/extension/" target="_blank"
+        >Polkadot.js extension</a
+      >
+    </p>
   </section>
 </template>
 
@@ -36,6 +45,10 @@ export default {
     };
   },
   async created() {
+    const devices = await robonomics.rws.getDevices(config.subscription);
+    if (!devices.isEmpty) {
+      this.devices = devices.toArray().map((item) => item.toString());
+    }
     robonomics.accountManager.onReady(() => {
       this.accounts = robonomics.accountManager.getAccounts();
       if (this.accounts.length) {
@@ -65,14 +78,14 @@ export default {
   },
 
   methods: {
-    clipboard(text, event){
-      navigator.clipboard.writeText(text).then(function() {
-        event.target.closest('a').classList.add('on')
+    clipboard(text, event) {
+      navigator.clipboard.writeText(text).then(function () {
+        event.target.closest("a").classList.add("on");
 
-        setTimeout(function() {
-          event.target.closest('a').classList.remove('on')
-        }, 5000)
-      })
+        setTimeout(function () {
+          event.target.closest("a").classList.remove("on");
+        }, 5000);
+      });
     }
   }
 };
