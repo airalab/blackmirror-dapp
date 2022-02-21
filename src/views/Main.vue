@@ -99,6 +99,7 @@ export default {
     closePopupVideo(){
       this.videoStick = false
       window.removeEventListener('scroll', this.stickPopupVideo)
+      window.removeEventListener('resize', this.stickPopupVideo)
     }
   },
   created() {
@@ -108,6 +109,7 @@ export default {
   },
   mounted (){
       window.addEventListener('scroll', this.stickPopupVideo)
+      window.removeEventListener('resize', this.stickPopupVideo)
     }
 };
 </script>
@@ -120,7 +122,7 @@ export default {
   top: 0;
   z-index: 1000;
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   padding: 0;
 }
 
