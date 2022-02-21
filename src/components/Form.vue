@@ -2,9 +2,10 @@
   <section>
     <textarea v-model="text" placeholder="Type your message here" required />
     <button v-if="loader" disabled>...</button>
-    <button v-else @click="submit" :disabled="!isSubscription">
+    <button v-else @click="submit" :disabled="!isSubscription || error">
       Sign and send
     </button>
+    <div v-if="error">{{ error }}</div>
     <div class="tip" v-if="!isSubscription">
       You need IoT subscription for transaction fee. Ask in
       <a :href="discord" target="_blank">Discord</a> to add your account to the
@@ -23,7 +24,8 @@ export default {
     return {
       text: "",
       isSubscription: false,
-      discord: config.discord
+      discord: config.discord,
+      error: false
     };
   },
   created() {
@@ -31,9 +33,20 @@ export default {
       this.isSubscription = robonomics.accountManager.subscription;
     }, 1000);
   },
+  watch: {
+    text() {
+      if (this.text.length > 50) {
+        this.error = "Maximum string length 50 characters";
+      } else {
+        this.error = false;
+      }
+    }
+  },
   methods: {
     submit() {
-      this.$emit("submit", this.text);
+      if (!this.error) {
+        this.$emit("submit", this.text);
+      }
     }
   }
 };
