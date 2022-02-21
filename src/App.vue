@@ -91,6 +91,7 @@ body {
   --color-green: rgb(130, 201, 0);
   --color-blue: #2949d3;
   --color-black: #111;
+  --color-orange: #f87306;
   --space: 20px;
 
   --duration: 0.2s;
@@ -116,8 +117,13 @@ body *::selection {
 }
 
 .app-title a {
-  color: #fff;
+  color: var(--color-black);
+  background: #fce043;
   text-decoration: none;
+}
+
+.app-title, .app-title h1 {
+  font-size: 24px !important;
 }
 
 .layout {
@@ -173,6 +179,10 @@ section.dark a {
 
 h2 {
   margin-bottom: calc(var(--space) * 2);
+}
+
+h3 {
+  background-color: var(--color-yellow);
 }
 
 p, ol, h4 {
