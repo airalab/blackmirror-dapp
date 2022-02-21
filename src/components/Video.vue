@@ -28,8 +28,8 @@ export default {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
-  /* border: 5px solid #000;
-  outline: 20px solid #333 */
+  border: 5px solid #000;
+  outline: 20px solid #333
 }
 
 .videoWrapper iframe {
