@@ -1,7 +1,10 @@
 <template>
   <section>
     <textarea v-model="text" placeholder="Type your message here" required />
-    <button @click="submit" :disabled="!isSubscription">Sign and send</button>
+    <button v-if="loader" disabled>...</button>
+    <button v-else @click="submit" :disabled="!isSubscription">
+      Sign and send
+    </button>
     <div class="tip" v-if="!isSubscription">
       You need IoT subscription for transaction fee. Ask in
       <a :href="discord" target="_blank">Discord</a> to add your account to the
@@ -15,6 +18,7 @@ import robonomics from "../robonomics";
 import config from "../config";
 
 export default {
+  props: ["loader"],
   data() {
     return {
       text: "",

@@ -7,7 +7,7 @@
         on device</i
       >
     </p>
-    <Form @submit="send" />
+    <Form @submit="send" :loader="loader" />
 
     <div class="msg" v-if="result">
       <h4>Your message has been sent</h4>
@@ -19,7 +19,11 @@
             >View tx explorer</a
           >
         </li>
-        <li><router-link :to="{ name: 'users' }" target="_blank">View list of succesfully written accounts</router-link></li>
+        <li>
+          <router-link :to="{ name: 'users' }" target="_blank"
+            >View list of succesfully written accounts</router-link
+          >
+        </li>
       </ol>
     </div>
     <div v-if="error">{{ error }}</div>
@@ -38,7 +42,8 @@ export default {
     return {
       result: null,
       error: null,
-      unsubscribe: null
+      unsubscribe: null,
+      loader: false
     };
   },
   unmounted() {
@@ -50,6 +55,7 @@ export default {
     async send(text) {
       this.error = "";
       this.result = "";
+      this.loader = true;
       try {
         const tx = robonomics.datalog.write(
           JSON.stringify({ blackmirror: text })
@@ -59,6 +65,7 @@ export default {
       } catch (error) {
         this.error = error.message;
       }
+      this.loader = false;
     }
   }
 };
@@ -67,11 +74,11 @@ export default {
 <style scoped>
 .msg {
   background-color: var(--color-yellow);
-  padding: var(--space)
+  padding: var(--space);
 }
 
 .msg a {
   font-weight: bold;
-  color: var(--color-blue)
+  color: var(--color-blue);
 }
 </style>
