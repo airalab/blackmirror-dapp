@@ -1,34 +1,36 @@
 <template>
-  <section>
-    <h3>Your account</h3>
+  <section style="margin-bottom: 0;">
+    <h3>1. Your account</h3>
     <p><i>[Robonomics parachain format]</i></p>
-    <select v-if="accounts.length > 1" v-model="account">
-      <option
-        v-for="(account, key) in accounts"
-        :key="key"
-        :value="account.address"
-      >
-        {{ account.meta.isTesting ? "dev" : "" }} {{ account.meta.name }}
-      </option>
-    </select>
-    <p v-if="accounts.length > 0">
-      <b class="account">{{ account }}</b>
-      <br />
-      <a
-        class="copyLink"
-        href="javascript:;"
-        @click.prevent="clipboard(account, $event)"
-      >
-        <span class="copy">Copy address</span>
-        <span class="copied">Address copied!</span>
-      </a>
-    </p>
-    <p v-if="accounts.length === 0">
-      Create or activate your account in
-      <a href="https://polkadot.js.org/extension/" target="_blank"
-        >Polkadot.js extension</a
-      >
-    </p>
+    <section>
+      <select v-if="accounts.length > 1" v-model="account">
+        <option
+          v-for="(account, key) in accounts"
+          :key="key"
+          :value="account.address"
+        >
+          {{ account.meta.isTesting ? "dev" : "" }} {{ account.meta.name }}
+        </option>
+      </select>
+      <p v-if="accounts.length > 0">
+        <b class="account">{{ account }}</b>
+        <br />
+        <a
+          class="copyLink"
+          href="javascript:;"
+          @click.prevent="clipboard(account, $event)"
+        >
+          <span class="copy">Copy address</span>
+          <span class="copied">Address copied!</span>
+        </a>
+      </p>
+      <p v-if="accounts.length === 0">
+        Create or activate your account in
+        <a href="https://polkadot.js.org/extension/" target="_blank"
+          >Polkadot.js extension</a
+        >
+      </p>
+    </section>
   </section>
 </template>
 

@@ -1,11 +1,16 @@
 <template>
   <section>
-    <textarea v-model="text" placeholder="Type your message here" required />
+    <input 
+      type="text" 
+      v-model="text" 
+      placeholder="Type your message here, 50 characters max" 
+      required
+      maxlength="50"/>
     <button v-if="loader" disabled>...</button>
     <button v-else @click="submit" :disabled="!isSubscription || error">
       Sign and send
     </button>
-    <div v-if="error">{{ error }}</div>
+    <div v-if="error" class="error">{{ error }}</div>
     <div class="tip" v-if="!isSubscription">
       You need IoT subscription for transaction fee. Ask in
       <a :href="discord" target="_blank">Discord</a> to add your account to the
@@ -36,7 +41,7 @@ export default {
   watch: {
     text() {
       if (this.text.length > 50) {
-        this.error = "Maximum string length 50 characters";
+        this.error = "Attention: Maximum string length 50 characters";
       } else {
         this.error = false;
       }
@@ -53,7 +58,7 @@ export default {
 </script>
 
 <style scoped>
-textarea {
+textarea, input[type=text] {
   width: 100%;
   border: 1px solid var(--color-black);
   padding: calc(var(--space) * 0.5);
@@ -63,7 +68,8 @@ textarea {
 }
 
 textarea,
-button {
+button,
+input[type=text] {
   margin-bottom: var(--space);
 }
 
@@ -104,5 +110,12 @@ button[disabled] {
   position: absolute;
   top: -10px;
   left: calc(50% - 10px);
+}
+
+.error {
+  text-align: center;
+  margin-bottom: var(--space);
+  color: var(--color-orange);
+  font-weight: bold;
 }
 </style>
