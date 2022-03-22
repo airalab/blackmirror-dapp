@@ -10,6 +10,7 @@
 <script>
 import robonomics from "../robonomics";
 import config from "../config";
+import { hexToString } from "@polkadot/util";
 
 export default {
   data() {
@@ -32,7 +33,7 @@ export default {
           const datalog = await robonomics.datalog.read(addr);
           for (const item of datalog) {
             try {
-              const data = JSON.parse(item[1].toHuman());
+              const data = JSON.parse(hexToString(item[1].toHex()));
               if (data.blackmirror && !users.includes(addr)) {
                 users.push(addr);
                 break;
