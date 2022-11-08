@@ -1,28 +1,26 @@
 <template>
   <div>
-    <h3>2. Your message to the device</h3>
+    <h3>{{ $t("sender.title") }}</h3>
     <p>
-      <i
-        >[Test Robonomics IoT subscription: type here your text, send and view it
-        on device]</i
-      >
+      <i>{{ $t("sender.notice") }}</i>
     </p>
     <Form @submit="send" :loader="loader" />
 
     <div class="msg" v-if="result">
-      <h4>Your message has been sent</h4>
+      <h4>{{ $t("sender.subtitle") }}</h4>
       <ol>
         <li>
           <a
             :href="`https://robonomics.subscan.io/extrinsic/${result}`"
             target="_blank"
-            >View tx explorer</a
           >
+            {{ $t("sender.explorer") }}
+          </a>
         </li>
         <li>
-          <router-link :to="{ name: 'users' }" target="_blank"
-            >View list of succesfully written accounts</router-link
-          >
+          <router-link :to="{ name: 'users' }" target="_blank">
+            {{ $t("sender.succesfully") }}
+          </router-link>
         </li>
       </ol>
     </div>

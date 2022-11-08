@@ -1,13 +1,18 @@
 <template>
   <div class="app">
     <div class="app-title">
-      <div class="layout">
+      <div class="layout flex">
         <h1>
-          Try it out dapp >
-          <a href="https://robonomics.academy/" target="_blank"
-            >Online Robonomics school 2022</a
-          >
+          {{ $t("header.title") }} >
+          <a href="https://robonomics.academy/" target="_blank">
+            {{ $t("header.link") }}
+          </a>
         </h1>
+
+        <select v-model="locale">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </select>
       </div>
     </div>
     <router-view />
@@ -26,6 +31,17 @@ export default {
     await AccountManager.initPlugin(robonomics.accountManager.keyring, {
       isDevelopment: config.isDevelopmentAccounts
     });
+  },
+  data() {
+    return {
+      locale: this.$i18n.locale
+    };
+  },
+  watch: {
+    locale(newValue) {
+      this.$i18n.locale = newValue;
+      localStorage.setItem("locale", newValue);
+    }
   }
 };
 </script>
@@ -105,8 +121,8 @@ body {
 }
 
 body *::selection {
-    color: var(--color-black);
-    background-color: var(--color-yellow); 
+  color: var(--color-black);
+  background-color: var(--color-yellow);
 }
 
 .app-title {
@@ -122,7 +138,8 @@ body *::selection {
   text-decoration: none;
 }
 
-.app-title, .app-title h1 {
+.app-title,
+.app-title h1 {
   font-size: 24px !important;
 }
 
@@ -131,6 +148,16 @@ body *::selection {
   margin: 0 auto;
   padding-left: var(--space);
   padding-right: var(--space);
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.flex h1 {
+  flex: 0 1 auto;
+}
+.flex select {
+  flex: 0 1 auto;
 }
 
 section {
@@ -185,7 +212,9 @@ h3 {
   background-color: var(--color-yellow);
 }
 
-p, ol, h4 {
+p,
+ol,
+h4 {
   margin-bottom: var(--space);
 }
 
@@ -198,7 +227,7 @@ ol {
 }
 
 a {
-  color: var(--color-blue)
+  color: var(--color-blue);
 }
 
 .animate-show-up {

@@ -1,65 +1,79 @@
 <template>
-<div>
- <section class="dark" id="video">
-    <div class="layout">
+  <div>
+    <section class="dark" id="video">
+      <div class="layout">
+        <Video class="block" />
+      </div>
+    </section>
+
+    <section id="video-sticky" v-show="videoStick">
+      <div class="video-sticky-title">
+        <span>{{ $t("main.live") }}</span>
+        <button
+          class="video-sticky-unstick"
+          aria-label="Close popup"
+          @click="closePopupVideo()"
+        >
+          x
+        </button>
+      </div>
       <Video class="block" />
-    </div>
- </section>
+    </section>
 
+    <section class="dark">
+      <div class="layout">
+        <h2 class="text-typing">{{ $t("main.welcome.title") }}</h2>
+        <p class="animate-show-up animate-show-up-1">
+          {{ $t("main.welcome.text") }}
+        </p>
+        <ol>
+          <li class="animate-show-up animate-show-up-2">
+            <i18n-t keypath="main.welcome.item1.text">
+              <template #link>
+                <a href="https://polkadot.js.org/extension/" target="_blank">
+                  {{ $t("main.welcome.item1.link") }}
+                </a>
+              </template>
+            </i18n-t>
+          </li>
+          <li class="animate-show-up animate-show-up-3">
+            <i18n-t keypath="main.welcome.item2.text">
+              <template #link>
+                <a :href="discord" target="_blank">
+                  {{ $t("main.welcome.item2.link") }}
+                </a>
+              </template>
+            </i18n-t>
+          </li>
+          <li class="animate-show-up animate-show-up-4">
+            {{ $t("main.welcome.item3") }}
+          </li>
+          <li class="animate-show-up animate-show-up-5">
+            <i18n-t keypath="main.welcome.item4.text">
+              <template #link>
+                <router-link :to="{ name: 'users' }" target="_blank">
+                  {{ $t("main.welcome.item4.link") }}
+                </router-link>
+              </template>
+            </i18n-t>
+          </li>
+          <li class="animate-show-up animate-show-up-6">
+            {{ $t("main.welcome.item5") }}
+          </li>
+        </ol>
+      </div>
+    </section>
 
- <section id="video-sticky" v-show="videoStick">
-    <div class="video-sticky-title">
-      <span>Black mirror live</span>
-      <button class="video-sticky-unstick" aria-label="Close popup" @click="closePopupVideo()">x</button>
-    </div>
-    <Video class="block" />
- </section>
-
-  <section class="dark">
-    <div class="layout">
-
-      <h2 class="text-typing">Welcome to black mirror</h2>
-      <p class="animate-show-up animate-show-up-1">
-        This decentralized application made for students of Robonomics winter
-        school 2022. It shows you that decentralized cloud over blockchain
-        already works.
-      </p>
-      <ol>
-        <li class="animate-show-up animate-show-up-2">
-          Create or activate your Polkadot account in
-          <a href="https://polkadot.js.org/extension/" target="_blank"
-            >Polkadot.js extension</a
-          >
-        </li>
-        <li class="animate-show-up animate-show-up-3">
-          Ask <a :href="discord" target="_blank">in Discord</a> to add your
-          account to the Learning Winter School 2022 subscription.
-        </li>
-        <li class="animate-show-up animate-show-up-4">
-          Type here your text message, sign and send it to our retro TV
-        </li>
-        <li class="animate-show-up animate-show-up-5">
-          Make sure your transaction with datalog succesfully
-          <router-link :to="{ name: 'users' }" target="_blank">sent</router-link>
-        </li>
-        <li class="animate-show-up animate-show-up-6">
-          Watch QR, it should change
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section>
-    <div class="layout">
-      <template v-if="isReady">
-        <Account class="block" />
-        <Sender />
-      </template>
-      <div v-else>...</div>
-    </div>
-  </section>
-  
-</div>
+    <section>
+      <div class="layout">
+        <template v-if="isReady">
+          <Account class="block" />
+          <Sender />
+        </template>
+        <div v-else>...</div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -85,21 +99,20 @@ export default {
   },
   methods: {
     stickPopupVideo() {
-      var
-        vid = document.querySelector('#video'),
+      var vid = document.querySelector("#video"),
         isScrolling,
         o = this;
 
-        window.clearTimeout( isScrolling );
-        isScrolling = setTimeout(function() {
-          o.videoStick = (window.pageYOffset - vid.offsetTop) > 800
-        }, 66);
+      window.clearTimeout(isScrolling);
+      isScrolling = setTimeout(function () {
+        o.videoStick = window.pageYOffset - vid.offsetTop > 800;
+      }, 66);
     },
 
-    closePopupVideo(){
-      this.videoStick = false
-      window.removeEventListener('scroll', this.stickPopupVideo)
-      window.removeEventListener('resize', this.stickPopupVideo)
+    closePopupVideo() {
+      this.videoStick = false;
+      window.removeEventListener("scroll", this.stickPopupVideo);
+      window.removeEventListener("resize", this.stickPopupVideo);
     }
   },
   created() {
@@ -107,15 +120,14 @@ export default {
       this.isReady = true;
     });
   },
-  mounted (){
-      window.addEventListener('scroll', this.stickPopupVideo)
-      window.removeEventListener('resize', this.stickPopupVideo)
-    }
+  mounted() {
+    window.addEventListener("scroll", this.stickPopupVideo);
+    window.removeEventListener("resize", this.stickPopupVideo);
+  }
 };
 </script>
 
 <style scoped>
-
 #video-sticky {
   position: fixed;
   right: 0;

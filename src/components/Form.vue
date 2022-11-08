@@ -1,20 +1,25 @@
 <template>
   <section>
-    <input 
-      type="text" 
-      v-model="text" 
-      placeholder="Type your message here, 50 characters max" 
+    <input
+      type="text"
+      v-model="text"
+      :placeholder="$t('form.placeholder')"
       required
-      maxlength="50"/>
+      maxlength="50"
+    />
     <button v-if="loader" disabled>...</button>
     <button v-else @click="submit" :disabled="!isSubscription || error">
-      Sign and send
+      {{ $t("form.sign") }}
     </button>
     <div v-if="error" class="error">{{ error }}</div>
     <div class="tip" v-if="!isSubscription">
-      You need IoT subscription for transaction fee. Ask in
-      <a :href="discord" target="_blank">Discord</a> to add your account to the
-      Learning Winter School 2022 subscription.
+      <i18n-t keypath="form.subscription.text">
+        <template #link>
+          <a :href="discord" target="_blank">
+            {{ $t("form.subscription.link") }}
+          </a>
+        </template>
+      </i18n-t>
     </div>
   </section>
 </template>
@@ -41,7 +46,7 @@ export default {
   watch: {
     text() {
       if (this.text.length > 50) {
-        this.error = "Attention: Maximum string length 50 characters";
+        this.error = this.$t("form.error");
       } else {
         this.error = false;
       }
@@ -58,7 +63,8 @@ export default {
 </script>
 
 <style scoped>
-textarea, input[type=text] {
+textarea,
+input[type="text"] {
   width: 100%;
   border: 1px solid var(--color-black);
   padding: calc(var(--space) * 0.5);
@@ -69,7 +75,7 @@ textarea, input[type=text] {
 
 textarea,
 button,
-input[type=text] {
+input[type="text"] {
   margin-bottom: var(--space);
 }
 
