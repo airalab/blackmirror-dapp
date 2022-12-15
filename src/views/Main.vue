@@ -30,7 +30,7 @@
           <li class="animate-show-up animate-show-up-2">
             <i18n-t keypath="main.welcome.item1.text">
               <template #link>
-                <a href="https://polkadot.js.org/extension/" target="_blank">
+                <a href="https://wiki.robonomics.network/docs/create-account-in-dapp/" target="_blank">
                   {{ $t("main.welcome.item1.link") }}
                 </a>
               </template>
@@ -46,9 +46,18 @@
             </i18n-t>
           </li>
           <li class="animate-show-up animate-show-up-4">
-            {{ $t("main.welcome.item3") }}
+            <i18n-t keypath="main.welcome.item7.text">
+              <template #link>
+                <a href="https://discord.com/channels/803947358492557312/944186892038053899/" target="_blank">
+                  {{ $t("main.welcome.item7.link") }}
+                </a>
+              </template>
+            </i18n-t>
           </li>
           <li class="animate-show-up animate-show-up-5">
+            {{ $t("main.welcome.item3") }}
+          </li>
+          <li class="animate-show-up animate-show-up-6">
             <i18n-t keypath="main.welcome.item4.text">
               <template #link>
                 <router-link :to="{ name: 'users' }" target="_blank">
@@ -57,7 +66,7 @@
               </template>
             </i18n-t>
           </li>
-          <li class="animate-show-up animate-show-up-6">
+          <li class="animate-show-up animate-show-up-7">
             {{ $t("main.welcome.item5") }}
           </li>
         </ol>

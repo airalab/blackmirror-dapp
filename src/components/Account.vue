@@ -29,7 +29,7 @@
       <p v-if="accounts.length === 0">
         <i18n-t keypath="account.create.text">
           <template #link>
-            <a href="https://polkadot.js.org/extension/" target="_blank">
+            <a href="https://polkadot.js.org/extension/">
               {{ $t("account.create.link") }}
             </a>
           </template>

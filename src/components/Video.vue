@@ -4,7 +4,7 @@
       width="100%"
       height="450"
       :src="src"
-      title="YouTube video player"
+      title="YouTube Video Player"
       frameborder="0"
       allowfullscreen
     ></iframe>

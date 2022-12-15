@@ -1,111 +1,119 @@
 export default {
   en: {
     header: {
-      title: "Try it out dapp",
-      link: "Online Robonomics school 2022"
+      title: "Robonomics Academy",
+      link: "Broadcasting Through the Black Mirror"
     },
     main: {
-      live: "Black mirror live",
+      live: "Live: Black Mirror",
       welcome: {
-        title: "Welcome to black mirror",
-        text: "This decentralized application made for students of Robonomics winter school 2022. It shows you that decentralized cloud over blockchain already works.",
+        title: "Welcome to Black Mirror",
+        text: "This decentralized application can remotely control the TV and change a QR code by sending your message using Robonomics platform. Follow this steps to proceed:",
         item1: {
-          text: "Create or activate your Polkadot account in {link}",
-          link: "Polkadot.js extension"
+          text: "Install the Polkadot.js browser extension and {link}",
+          link: "create an account"
         },
         item2: {
-          text: "Ask {link} to add your account to the Learning Winter School 2022 subscription.",
-          link: "in Discord"
+          text: "Enter our {link} and get the 'Developer Community Member' role",
+          link: "Discord"
         },
-        item3: "Type here your text message, sign and send it to our retro TV",
+        item7: {
+          text: "Enter your account's address to the {link}, called 'academy-faucet', for adding your address to the subscription",
+          link: "Discord chatbot"
+        },
+        item3: "Type here a short text message in English, sign and send it to the retro TV",
         item4: {
-          text: "Make sure your transaction with datalog succesfully {link}",
-          link: "sent"
+          text: "Check your transaction was executed successfully in the Polkadot explorer",
+          link: ""
         },
-        item5: "Watch QR, it should change"
+        item5: "Watch QR on TV, it should change"
       }
     },
     account: {
-      title: "1. Your account",
-      notice: "[Robonomics parachain format]",
+      title: "1. Your Account",
+      notice: "[In format of Robonomics Parachain]",
       copy: "Copy address",
       copied: "Address copied!",
       create: {
-        text: "Create or activate your account in {link}",
+        text: "Create your account in {link}",
         link: "Polkadot.js extension"
       }
     },
     sender: {
-      title: "2. Your message to the device",
+      title: "2. Your Message",
       notice:
-        "[Test Robonomics IoT subscription: type here your text, send and view it on device]",
+        "[Type here the text in English, send and view it on TV]",
       subtitle: "Your message has been sent",
-      explorer: "View tx explorer",
-      succesfully: "View list of succesfully written accounts"
+      explorer: "View transactions explorer",
+      succesfully: "View list of successfully written accounts"
     },
     form: {
-      placeholder: "Type your message here, 50 characters max",
-      sign: "Sign and send",
+      placeholder: "Type your message, 50 characters max",
+      sign: "Sign and Send",
       subscription: {
-        text: "You need IoT subscription for transaction fee. Ask in {link} to add your account to the Learning Winter School 2022 subscription.",
+        text: "You need to add your address to IoT subscription. Enter our {link} and check the 'academy-faucet' chatbot.",
         link: "Discord"
       },
-      error: "Attention: Maximum string length 50 characters"
+      error: "Error: maximum message length is 50 characters"
     }
   },
 
   ru: {
     header: {
-      title: "Try it out dapp",
-      link: "Online Robonomics school 2022"
+      title: "Robonomics Academy",
+      link: "Broadcasting Through the Black Mirror"
     },
     main: {
-      live: "Black mirror live",
+      live: "Live: Black Mirror",
       welcome: {
-        title: "Welcome to black mirror",
-        text: "This decentralized application made for students of Robonomics winter school 2022. It shows you that decentralized cloud over blockchain already works.",
+        title: "Welcome to Black Mirror",
+        text: "This decentralized application can remotely control the TV and change a QR code by sending your message using Robonomics platform. Follow this steps to proceed:",
         item1: {
-          text: "Create or activate your Polkadot account in {link}",
-          link: "Polkadot.js extension"
+          text: "Install the Polkadot.js browser extension and {link}",
+          link: "create an account"
         },
         item2: {
-          text: "Ask {link} to add your account to the Learning Winter School 2022 subscription.",
-          link: "in Discord"
+          text: "Enter our {link} and get the 'Developer Community Member' role",
+          link: "Discord"
         },
-        item3: "Type here your text message, sign and send it to our retro TV",
+        item7: {
+          text: "Enter your account's address to the {link}, called 'academy-faucet', for adding your address to the subscription",
+          link: "Discord chatbot"
+        },
+        item3: "Type here a short text message in English, sign and send it to the retro TV",
         item4: {
-          text: "Make sure your transaction with datalog succesfully {link}",
-          link: "sent"
+          text: "Check your transaction was executed successfully in the Polkadot explorer",
+          link: ""
         },
-        item5: "Watch QR, it should change"
+        item5: "Watch QR on TV, it should change"
       }
     },
     account: {
-      title: "1. Your account",
-      notice: "[Robonomics parachain format]",
+      title: "1. Your Account",
+      notice: "[In format of Robonomics Parachain]",
       copy: "Copy address",
       copied: "Address copied!",
       create: {
-        text: "Create or activate your account in {link}",
+        text: "Create your account in {link}",
         link: "Polkadot.js extension"
       }
     },
     sender: {
-      title: "2. Your message to the device",
+      title: "2. Your Message",
       notice:
-        "[Test Robonomics IoT subscription: type here your text, send and view it on device]",
+        "[Type here the text in English, send and view it on TV]",
       subtitle: "Your message has been sent",
-      explorer: "View tx explorer",
-      succesfully: "View list of succesfully written accounts"
+      explorer: "View transactions explorer",
+      succesfully: "View list of successfully written accounts"
     },
     form: {
-      placeholder: "Type your message here, 50 characters max",
-      sign: "Sign and send",
+      placeholder: "Type your message, 50 characters max",
+      sign: "Sign and Send",
       subscription: {
-        text: "You need IoT subscription for transaction fee. Ask in {link} to add your account to the Learning Winter School 2022 subscription.",
+        text: "You need to add your address to IoT subscription. Enter our {link} and check the 'academy-faucet' chatbot.",
         link: "Discord"
       },
-      error: "Attention: Maximum string length 50 characters"
+      error: "Error: maximum message length is 50 characters"
     }
-  }
+  },
 };
