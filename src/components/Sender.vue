@@ -17,11 +17,6 @@
             {{ $t("sender.explorer") }}
           </a>
         </li>
-        <li>
-          <router-link :to="{ name: 'users' }" target="_blank">
-            {{ $t("sender.succesfully") }}
-          </router-link>
-        </li>
       </ol>
     </div>
     <div v-if="error">{{ error }}</div>

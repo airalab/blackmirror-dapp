@@ -21,7 +21,8 @@ export default {
           text: "Enter your account's address to the {link}, called 'academy-faucet', for adding your address to the subscription",
           link: "Discord chatbot"
         },
-        item3: "Type here a short text message in English, sign and send it to the retro TV",
+        item3:
+          "Type here a short text message in English, sign and send it to the retro TV",
         item4: {
           text: "Check your transaction was executed successfully in the Polkadot explorer",
           link: ""
@@ -41,11 +42,9 @@ export default {
     },
     sender: {
       title: "2. Your Message",
-      notice:
-        "[Type here the text in English, send and view it on TV]",
+      notice: "[Type here the text in English, send and view it on TV]",
       subtitle: "Your message has been sent",
-      explorer: "View transactions explorer",
-      succesfully: "View list of successfully written accounts"
+      explorer: "View transactions explorer"
     },
     form: {
       placeholder: "Type your message, 50 characters max",
@@ -80,7 +79,8 @@ export default {
           text: "Enter your account's address to the {link}, called 'academy-faucet', for adding your address to the subscription",
           link: "Discord chatbot"
         },
-        item3: "Type here a short text message in English, sign and send it to the retro TV",
+        item3:
+          "Type here a short text message in English, sign and send it to the retro TV",
         item4: {
           text: "Check your transaction was executed successfully in the Polkadot explorer",
           link: ""
@@ -100,11 +100,9 @@ export default {
     },
     sender: {
       title: "2. Your Message",
-      notice:
-        "[Type here the text in English, send and view it on TV]",
+      notice: "[Type here the text in English, send and view it on TV]",
       subtitle: "Your message has been sent",
-      explorer: "View transactions explorer",
-      succesfully: "View list of successfully written accounts"
+      explorer: "View transactions explorer"
     },
     form: {
       placeholder: "Type your message, 50 characters max",
@@ -115,5 +113,5 @@ export default {
       },
       error: "Error: maximum message length is 50 characters"
     }
-  },
+  }
 };

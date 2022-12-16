@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Main from "./views/Main";
-import Users from "./views/Users";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -9,11 +8,6 @@ const router = createRouter({
       path: "/",
       name: "main",
       component: Main
-    },
-    {
-      path: "/users",
-      name: "users",
-      component: Users
     }
   ]
 });
