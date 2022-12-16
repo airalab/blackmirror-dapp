@@ -267,6 +267,10 @@ a {
   animation-delay: calc((var(--delay) + var(--duration)) * 6);
 }
 
+.animate-show-up-7 {
+  animation-delay: calc((var(--delay) + var(--duration)) * 7);
+}
+
 @media screen and (max-width: 420px) {
   h2 {
     font-size: 90%;
